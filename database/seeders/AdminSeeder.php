@@ -25,8 +25,8 @@ class AdminSeeder extends Seeder
 
             $result = $adminService->handleSignup([
                 'email' => 'admin@admin.com',
-                'password' => '12345',
-                'password_confirmation' => '12345',
+                'password' => 'admin',
+                'password_confirmation' => 'admin',
             ]);
 
             if ($result['status'] !== CoreConstants::STATUS_CODE_SUCCESS) {
@@ -39,7 +39,7 @@ class AdminSeeder extends Seeder
                     try {
                         $settingService = resolve(SettingInterface::class);
                         //site name
-                        $file = DotenvEditor::setKey('APP_NAME', 'Ezfolio');
+                        $file = DotenvEditor::setKey('APP_NAME', 'Abdulmalik');
                         $file = DotenvEditor::save();
 
                         //accent color

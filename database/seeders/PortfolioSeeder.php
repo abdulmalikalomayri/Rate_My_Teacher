@@ -77,43 +77,43 @@ class PortfolioSeeder extends Seeder
             //visibility
             $data = [
                 'setting_key' => CoreConstants::PORTFOLIO_CONFIG__VISIBILITY_ABOUT,
-                'setting_value' => CoreConstants::TRUE,
-                'default_value' => CoreConstants::TRUE,
+                'setting_value' => CoreConstants::FALSE,
+                'default_value' => CoreConstants::FALSE,
             ];
             $portfolioConfig->insertOrUpdate($data);
 
             $data = [
                 'setting_key' => CoreConstants::PORTFOLIO_CONFIG__VISIBILITY_SKILL,
-                'setting_value' => CoreConstants::TRUE,
-                'default_value' => CoreConstants::TRUE,
+                'setting_value' => CoreConstants::FALSE,
+                'default_value' => CoreConstants::FALSE,
             ];
             $portfolioConfig->insertOrUpdate($data);
 
             $data = [
                 'setting_key' => CoreConstants::PORTFOLIO_CONFIG__VISIBILITY_EDUCATION,
-                'setting_value' => CoreConstants::TRUE,
-                'default_value' => CoreConstants::TRUE,
+                'setting_value' => CoreConstants::FALSE,
+                'default_value' => CoreConstants::FALSE,
             ];
             $portfolioConfig->insertOrUpdate($data);
 
             $data = [
                 'setting_key' => CoreConstants::PORTFOLIO_CONFIG__VISIBILITY_EXPERIENCE,
-                'setting_value' => CoreConstants::TRUE,
-                'default_value' => CoreConstants::TRUE,
+                'setting_value' => CoreConstants::FALSE,
+                'default_value' => CoreConstants::FALSE,
             ];
             $portfolioConfig->insertOrUpdate($data);
 
             $data = [
                 'setting_key' => CoreConstants::PORTFOLIO_CONFIG__VISIBILITY_PROJECT,
-                'setting_value' => CoreConstants::TRUE,
-                'default_value' => CoreConstants::TRUE,
+                'setting_value' => CoreConstants::FALSE,
+                'default_value' => CoreConstants::FALSE,
             ];
             $portfolioConfig->insertOrUpdate($data);
 
             $data = [
                 'setting_key' => CoreConstants::PORTFOLIO_CONFIG__VISIBILITY_SERVICE,
-                'setting_value' => CoreConstants::TRUE,
-                'default_value' => CoreConstants::TRUE,
+                'setting_value' => CoreConstants::FALSE,
+                'default_value' => CoreConstants::FALSE,
             ];
             $portfolioConfig->insertOrUpdate($data);
 
@@ -285,12 +285,12 @@ class PortfolioSeeder extends Seeder
                 }
                 
                 $data = [
-                    'name' => 'John Doe',
-                    'email' => 'johndoe@example.com',
+                    'name' => 'Abdulmalik Alomayri',
+                    'email' => 'omayri970@gmail.com',
                     'avatar' => 'assets/common/img/avatar/default.png',
                     'cover' => 'assets/common/img/cover/default.png',
-                    'phone' => '12025550191',
-                    'address' => '1609 Nuzum Court, Cheektowaga, NY 14225',
+                    'phone' => '0507118051',
+                    'address' => '1131 Saudi Arabia',
                     'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non corporis assumenda maiores. Impedit quia necessitatibus adipisci sit quibusdam aspernatur mollitia, deleniti, id, molestiae a accusantium modi sint expedita aliquam labore.',
                     'taglines' => ["I am Software Engineer", "I am Web Developer", "I am Full Stack Engineer"],
                     'social_links' => [
@@ -312,7 +312,7 @@ class PortfolioSeeder extends Seeder
                         [
                             'title' => 'Mail',
                             'iconClass' => 'far fa-envelope',
-                            'link' => 'mailto:johndoe@example.com'
+                            'link' => 'mailto:omayri970@gmail.com'
                         ],
                     ],
                     'seederCV' => 'assets/common/cv/default.pdf',
@@ -322,24 +322,16 @@ class PortfolioSeeder extends Seeder
                 //education table seed
                 try {
                     $data = [
-                        'institution' => 'University of Colorado Boulder',
-                        'period' => '2006-2010',
-                        'degree' => 'Bachelor of Science',
-                        'cgpa' => '4.00 out of 4.00',
-                        'department' => 'Computer Science & Engineering',
-                        'thesis' => 'Web Development Track'
+                        'institution' => 'SOFTWARE ENIGNEERING',
+                        'period' => '2017-2021',
+                        'degree' => '',
+                        'cgpa' => '4.49 out of 5.00',
+                        'department' => 'Software Engineering',
+                        'thesis' => ''
                     ];
                     $education->store($data);
 
-                    $data = [
-                        'institution' => 'James Buchanan High School',
-                        'period' => '2002-2006',
-                        'degree' => 'Technology Magnet Program',
-                        'cgpa' => '3.75 out of 4.00',
-                        'department' => null,
-                        'thesis' => null
-                    ];
-                    $education->store($data);
+                    
                 } catch (\Throwable $th) {
                     Log::error($th->getMessage());
                 }
@@ -409,28 +401,14 @@ class PortfolioSeeder extends Seeder
             //experience table seed
             try {
                 $data = [
-                    'company' => 'ABC LIMITED',
-                    'period' => '2019-Present',
-                    'position' => 'Senior Software Engineer',
-                    'details' => $faker->text()
-                ];
-                $experience->store($data);
-
-                $data = [
-                    'company' => 'ABC LIMITED',
-                    'period' => '2017-2019',
+                    'company' => 'Company',
+                    'period' => '2020-Present',
                     'position' => 'Software Engineer',
                     'details' => $faker->text()
                 ];
                 $experience->store($data);
 
-                $data = [
-                    'company' => 'XYZ LIMITED',
-                    'period' => '2015-2017',
-                    'position' => 'Junior Software Engineer',
-                    'details' => $faker->text()
-                ];
-                $experience->store($data);
+               
             } catch (\Throwable $th) {
                 Log::error($th->getMessage());
             }
@@ -552,7 +530,7 @@ class PortfolioSeeder extends Seeder
 
             try {
                 //visitor table seed
-                foreach (range(1, 72) as $index) {
+                foreach (range(1, 50) as $index) {
                     $data = [
                         'tracking_id' => Str::random(30),
                         'is_new' => $faker->boolean(60),
