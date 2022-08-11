@@ -1,19 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class PostController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +14,11 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
-        return view('auth.register');
+        $posts = Post::get();
+
+        return view('posts.index', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -42,33 +38,26 @@ class RegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // validate
+    {   
+        // validate request two param
+        // first the variabel
+        // secound is the rule
         $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'username' => 'required|max:255',
-            'password' => 'required|confirmed',
+            'body' => 'required',
         ]);
 
-        // add
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
+        // Post::create([
+        //     'user_id' => auth()->user()->id,
+        //     'body' => $request->body,
+        // ]
+        // );
 
-        // auth()->user(); // User
-        // auth()->attempt([
-        //     'email' => $request->email,
-        //     'password' => $request->password,
-        // ]);
-        // sign in
-        auth()->attempt($request->only('email', 'password'));
+        // eloquent way 
+            $request->user()->posts()->create([
+                'body' => $request->body
+            ]);
 
-        // redirect
-        return redirect()->route('dashboard');
+            return back();
     }
 
     /**

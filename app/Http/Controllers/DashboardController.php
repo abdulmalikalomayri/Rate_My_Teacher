@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class DashboardController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware(['auth']);
     }
 
     /**
@@ -21,8 +18,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
-        return view('auth.register');
+        return view('dashboard');
     }
 
     /**
@@ -43,32 +39,7 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        // validate
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'username' => 'required|max:255',
-            'password' => 'required|confirmed',
-        ]);
-
-        // add
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
-
-        // auth()->user(); // User
-        // auth()->attempt([
-        //     'email' => $request->email,
-        //     'password' => $request->password,
-        // ]);
-        // sign in
-        auth()->attempt($request->only('email', 'password'));
-
-        // redirect
-        return redirect()->route('dashboard');
+        //
     }
 
     /**
