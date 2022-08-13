@@ -23,6 +23,7 @@ Route::get('/', function() {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+// Auth
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
