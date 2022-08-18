@@ -12,32 +12,24 @@ class PostLikeController extends Controller
     {
         $this->middleware(['auth']);
     }
-
+    
     public function store(Post $post, Request $request)
     {
-
-        // return true if user have already like a post
-        if($post->likedBy($request->user()))
-        {
+        if ($post->likedBy($request->user())) {
             return response(null, 409);
         }
 
-         $post->likes()->create([
+        $post->likes()->create([
             'user_id' => $request->user()->id,
-         ]);
-        
+        ]);
+
         return back();
     }
 
-    public function destroy(Post $post, Request $request) 
+    public function destroy(Post $post, Request $request)
     {
-        if(!$post->likedBy($request->user()))
-        {
-            return response(null, 409);
-        }
+        $request->user()->likes()->delete();
 
-        $post->likes()->delete([
-            'user_id' => $request->user()->id,
-         ]);
+        return back();
     }
 }

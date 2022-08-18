@@ -40,4 +40,4 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts');
 // Route::post('/posts/{id}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
 // post is the name of the model that we want to look up
 Route::post('/posts/{post:id}/likes', [PostLikeController::class, 'store'])->name('posts.likes');
-Route::delete('/posts/{Post:id}/likes', [PostLikeController::class, 'destory'])->name('posts.likes');
+Route::delete('/posts/{Post:id}/likes', [PostLikeController::class, 'destroy'])->name('posts.unlikes');
