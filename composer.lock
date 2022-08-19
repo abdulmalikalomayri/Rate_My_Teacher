@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0aa647111df22b6ff1c89c10b427e3fb",
+    "content-hash": "4c740c346c2de96f35a9137da6587a3a",
     "packages": [
         {
             "name": "brick/math",
@@ -1696,6 +1696,117 @@
                 }
             ],
             "time": "2022-07-24T11:55:47+00:00"
+        },
+        {
+            "name": "mtvs/eloquent-approval",
+            "version": "v5.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtvs/eloquent-approval.git",
+                "reference": "f6cb6f6b4f6e6c77d2616dd111ef4894850059e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtvs/eloquent-approval/zipball/f6cb6f6b4f6e6c77d2616dd111ef4894850059e2",
+                "reference": "f6cb6f6b4f6e6c77d2616dd111ef4894850059e2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0",
+                "phpunit/phpunit": "^8.3|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mtvs\\EloquentApproval\\ApprovalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mtvs\\EloquentApproval\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Ali Tavassoli",
+                    "email": "mtvs.dev@gmail.com"
+                }
+            ],
+            "description": "Approval process for Laravel Eloquent models.",
+            "keywords": [
+                "approval",
+                "eloquent",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/mtvs/eloquent-approval/issues",
+                "source": "https://github.com/mtvs/eloquent-approval/tree/v5.1.2"
+            },
+            "time": "2022-08-02T19:32:38+00:00"
+        },
+        {
+            "name": "mtvs/laravel-reviews",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtvs/laravel-reviews.git",
+                "reference": "01434c46dbee06a81572943ac47d003094d2b420"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtvs/laravel-reviews/zipball/01434c46dbee06a81572943ac47d003094d2b420",
+                "reference": "01434c46dbee06a81572943ac47d003094d2b420",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^9.0",
+                "mtvs/eloquent-approval": "^5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^7.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mtvs\\Reviews\\ReviewsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mtvs\\Reviews\\": "src/",
+                    "Mtvs\\Reviews\\Commands\\": "commands/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mtvs",
+                    "email": "mtvsdev@gmail.com"
+                }
+            ],
+            "description": "Reviews and ratings for the Laravel Framework",
+            "support": {
+                "issues": "https://github.com/mtvs/laravel-reviews/issues",
+                "source": "https://github.com/mtvs/laravel-reviews/tree/v1.0.2"
+            },
+            "time": "2022-08-02T19:29:23+00:00"
         },
         {
             "name": "nesbot/carbon",

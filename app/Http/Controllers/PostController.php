@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(2);
+        $posts = Post::orderBy("created_at", "desc")->with(['user', 'likes'])->paginate(2);
 
         return view('posts.index', [
             'posts' => $posts
@@ -102,8 +102,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $this->authorize('delete', $post);
+
+        return back();
     }
 }

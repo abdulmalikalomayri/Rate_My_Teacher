@@ -32,7 +32,15 @@
                         <p class="mb-2">
                             {{ $post->body}}
                         </p>
-                        
+                        @if($post->owendBy(auth()->user()))
+                            <div>
+                                <form action="{{ route('posts.destroy', $post->id)}}" method="post" class="mr-1">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-blue-500">Delete</button>
+                                </form> 
+                            </div>
+                        @endif
                         <div class="flex item-center">
                             @if(auth()->user())
                                 @if(!$post->likedBy(auth()->user()))
@@ -41,13 +49,14 @@
                                     <button type="submit" class="text-blue-500">Like</button>
                                 </form>
                                 @else
-                                <form action="{{ route('posts.unlikes', $post->id)}}" method="post" class="mr-1">
+                                <form action="{{ route('posts.likes', $post->id)}}" method="post" class="mr-1">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-blue-500">Unlike</button>
                                 </form>
                                 @endif
                             @endif
+
                             <span>{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count() )}}</span>
                         </div>
                      </div>

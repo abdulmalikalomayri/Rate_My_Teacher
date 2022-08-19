@@ -2,31 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\PostLiked;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Post;
-use Illuminate\Support\Facades\Mail;
 
-class DashboardController extends Controller
+class UserPostController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth']);
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
-        $user = auth()->user();
-
-        Mail::to($user)->send(new PostLiked());
-
-        return view('dashboard');
+        dd($user);
     }
 
     /**
