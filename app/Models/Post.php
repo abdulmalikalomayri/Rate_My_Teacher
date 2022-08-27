@@ -2,36 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Like;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'body',
+        'body'
     ];
+
+    public function likedBy(User $user)
+    {
+        return $this->likes->contains('user_id', $user->id);
+    }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function likes() 
+    public function likes()
     {
         return $this->hasMany(Like::class);
-    }
-
-    // return true or false
-    public function likedBy(User $user) 
-    {
-        return $this->likes->contains('user_id', $user->id);
-    }
-
-    public function owendBy(User $user) 
-    {
-        return $user->id == $this->user_id;
     }
 }
