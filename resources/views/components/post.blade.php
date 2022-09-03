@@ -11,6 +11,11 @@
             @method('DELETE')
             <button type="submit" class="text-blue-500">Delete</button>
         </form>
+        <form action="{{ route('posts.edit', $post) }}" method="post">
+            @csrf
+            @method('PUT')
+            <button type="submit" class="text-blue-500">Edit</button>
+        </form>
     @endcan
 
     <div class="flex items-center">

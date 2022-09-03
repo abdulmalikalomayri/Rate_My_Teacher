@@ -28,6 +28,18 @@ class PostController extends Controller
         ]);
     }
 
+    public function edit(Post $post)
+    {
+        dd($post->id);
+    }
+
+    public function update(Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post
+        ]);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
