@@ -57,4 +57,16 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Like::class, Post::class);
     }
+
+    // defined relationship 
+    public function product()
+    {
+        return $this->hasMany('App\Product');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
 }
