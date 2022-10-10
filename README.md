@@ -1,10 +1,26 @@
-# Posty
+# Laravel Get Started
+All laravel exmpales in one place
 
-The code for the Posty project, from the Traversy Media Laravel crash course.
+## Get Started with Laravel
+* Composer
+* PHP 8
+* MySQL
 
-Feel free to use this code however you like!
+## Get Started with Laravel
 
-# Links
+1. Run Below Commands
 
-* [Codecourse](https://codecourse.com)
-* [Traversy Media](https://www.youtube.com/user/TechGuyWeb)
+```
+Composer install
+
+npm install && npm run dev
+
+php artisan key:generate
+
+php artisan migrate --seed
+
+php artisan serve
+
+
+```
+
