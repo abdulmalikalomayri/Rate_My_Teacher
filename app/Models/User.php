@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\Phone;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -69,4 +70,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Review');
     }
 
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
 }
