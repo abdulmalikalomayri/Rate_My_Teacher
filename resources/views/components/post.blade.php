@@ -36,4 +36,23 @@
 
         <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
     </div>
+
+    <div class="flex items-center">
+        @auth
+            @if (!$post->dislikedBy(auth()->user()))
+                <form action="{{ route('posts.dislikes', $post) }}" method="post" class="mr-1">
+                    @csrf
+                    <button type="submit" class="text-blue-500">Dislike</button>
+                </form>
+            @else
+                <form action="{{ route('posts.dislikes', $post) }}" method="post" class="mr-1">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-blue-500">UnDislike</button>
+                </form>
+            @endif
+        @endauth
+
+        <span>{{ $post->dislikes->count() }} {{ Str::plural('dislike', $post->dislikes->count()) }}</span>
+    </div>
 </div>

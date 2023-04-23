@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\Dislike;
 use App\Models\Phone;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -54,9 +55,19 @@ class User extends Authenticatable
         return $this->hasMany(Like::class);
     }
 
+    public function dislikes()
+    {
+        return $this->hasMany(Dislike::class);
+    }
+
     public function receivedLikes()
     {
         return $this->hasManyThrough(Like::class, Post::class);
+    }
+    
+    public function receivedDislikes()
+    {
+        return $this->hasManyThrough(Dislike::class, Post::class);
     }
 
     // defined relationship 

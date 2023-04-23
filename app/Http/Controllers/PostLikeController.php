@@ -20,6 +20,14 @@ class PostLikeController extends Controller
             return response(null, 409);
         }
 
+        if(!$post->likedBy($request->user())) {
+
+            $request->user()->dislikes()->where('post_id', $post->id)->delete();
+        }
+        // dd($request);
+        // return false if user have not like post
+        // dd($post->likedBy($request->user()));
+
         $post->likes()->create([
             'user_id' => $request->user()->id,
         ]);
@@ -34,7 +42,11 @@ class PostLikeController extends Controller
 
     public function destroy(Post $post, Request $request)
     {
-        $request->user()->likes()->where('post_id', $post->id)->delete();
+        
+        if($post->likedBy($request->user())) {
+
+            $request->user()->likes()->where('post_id', $post->id)->delete();
+        }
 
         return back();
     }

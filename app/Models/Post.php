@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\Dislike;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -19,6 +20,11 @@ class Post extends Model
         return $this->likes->contains('user_id', $user->id);
     }
 
+    public function dislikedBy(User $user)
+    {
+        return $this->dislikes->contains('user_id', $user->id);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -27,5 +33,10 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function dislikes()
+    {
+        return $this->hasMany(Dislike::class);
     }
 }
