@@ -10,10 +10,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\TeacherController;
 
 /* Home Page */
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return view('home');
 })->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -47,3 +48,7 @@ Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->na
 /* Posts Dislike & Undislike */
 Route::post('/posts/{post}/dislikes', [PostDislikeController::class, 'store'])->name('posts.dislikes');
 Route::delete('/posts/{post}/dislikes', [PostDislikeController::class, 'destroy'])->name('posts.dislikes');
+
+
+Route::get('teachers', [TeacherController::class, 'index'])->name('teachers');
+Route::get('teachers/leaderboard', [TeacherController::class, 'index'])->name('teachers.leaderboard');
