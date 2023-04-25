@@ -16,9 +16,7 @@ use App\Http\Controllers\TeacherDislikeController;
 
 
 /* Home Page */
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [TeacherController::class, 'home'])->name('home');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
