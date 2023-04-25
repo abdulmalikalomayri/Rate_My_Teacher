@@ -20,9 +20,11 @@
       <x-teacher :teacher="$teacher" />
 
       @endforeach
-    </div>
+      <div class="d-flex justify-content-center">
+        {{ $teachers->links() }}
+      </div>
 
-    {{ $teachers->links() }}
+    </div>
   @else 
   <div class="col-lg-6 mx-auto">
     <div class="card w-75 mb-3">

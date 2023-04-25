@@ -1,9 +1,7 @@
 @props(['teacher' => $teacher])
 
-<div class="mb-4">
-    <a href="" class="btn btn-link">{{ $teacher->name }}</a>
-
-
+<div class="row justify-content-center">
+<div class="mb-4 border col-sm-8 row align-items-center">
     {{-- Like --}}
     @auth
       {{-- user have not like the teacher before? --}}
@@ -20,12 +18,12 @@
         </form>
       @endif
     @endauth
-    <span>{{ $teacher->likes->count() }} {{ Str::plural('like', $teacher->likes->count()) }}</span>
+    <div class="pl-4">{{ $teacher->likes->count() - $teacher->dislikes->count() }}  <a href="" class="btn btn-link">{{ $teacher->name }}</a></div>
 
     {{-- Dislike --}}
     @auth
       {{-- user have not like the teacher before? --}}
-      @if(!$teacher->likedBy(auth()->user()))
+      @if(!$teacher->dislikedBy(auth()->user()))
         <form action="{{ route('teachers.dislikes', $teacher)}}" method="post">
             @csrf
             <button type="submit" class="btn btn-link">Dislikes</button>
@@ -37,8 +35,8 @@
             <button type="submit" class="btn btn-link">Undislikes</button>
         </form>
       @endif  
-      <span>{{ $teacher->dislikes->count() }} {{ Str::plural('like', $teacher->dislikes->count()) }}</span>
 
     @endauth
 
+</div>
 </div>
