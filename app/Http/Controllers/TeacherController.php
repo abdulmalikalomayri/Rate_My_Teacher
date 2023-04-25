@@ -22,7 +22,7 @@ class TeacherController extends Controller
     {
         //
 
-        $teachers = Teacher::latest()->with(['user', 'likes', 'dislikes'])->paginate(20);
+        $teachers = Teacher::latest()->with(['likes', 'dislikes'])->paginate(20);
 
         return view('teachers.index', ['teachers' => $teachers]);
     }
@@ -35,7 +35,7 @@ class TeacherController extends Controller
     {
         //
 
-        $teachers = Teacher::latest()->with(['user', 'likes', 'dislikes'])->paginate(20);
+        $teachers = Teacher::latest()->with(['likes', 'dislikes'])->paginate(2);
 
         return view('teachers.leaderboard', ['teachers' => $teachers]);
     }

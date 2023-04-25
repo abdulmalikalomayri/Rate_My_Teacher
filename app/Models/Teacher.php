@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+
+use App\Models\Like;
+use App\Models\Dislike;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,18 +17,21 @@ class Teacher extends Model
         'name'
     ];
 
-    // like/dislike = this func will help us determin if the user have like or dislike
     public function likedBy(User $user)
     {
         return $this->likes->contains('user_id', $user->id);
     }
 
-    public function dislikeBy(User $user)
+    public function dislikedBy(User $user)
     {
         return $this->dislikes->contains('user_id', $user->id);
     }
 
-    // Database relationship for like/dislike
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function likes()
     {
         return $this->hasMany(Like::class);

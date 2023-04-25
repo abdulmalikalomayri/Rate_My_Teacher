@@ -1,69 +1,64 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-center">
-        <div class="w-4/12 bg-white p-6 rounded-lg">
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Sign up</h5>
             <form action="{{ route('register') }}" method="post">
                 @csrf
-                <div class="mb-4">
-                    <label for="name" class="sr-only">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Your name" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('name') border-red-500 @enderror" value="{{ old('name') }}">
+                
+              <div class="form-floating mb-3">
+                <input type="name" name="name" class="form-control" id="name" placeholder="name" value="{{ old('name')}}">
+                <label for="name">Name</label>
+                @error('name')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
+                
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" id="email" placeholder="email" value="{{ old('email')}}">
+                <label for="email">Email address</label>
+                @error('email')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
+                
+              <div class="form-floating mb-3">
+                <input type="username" name="username" class="form-control" id="username" placeholder="username" value="{{ old('username')}}">
+                <label for="username">Username</label>
+                @error('username')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
 
-                    @error('name')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+              <div class="form-floating mb-3">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">Password</label>
+                @error('password')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
 
-                <div class="mb-4">
-                    <label for="username" class="sr-only">Username</label>
-                    <input type="text" name="username" id="username" placeholder="Username" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('username') border-red-500 @enderror" value="{{ old('username') }}">
+              <div class="form-floating mb-3">
+                <input type="password_confirmation" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Repeat your password">
+                <label for="password_confirmation">Password confirmation</label>
+                @error('password_confirmation')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
 
-                    @error('username')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign up</button>
+              </div>
 
-                <div class="mb-4">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Your email" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{ old('email') }}">
-
-                    @error('email')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Choose a password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror" value="">
-
-                    @error('password')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <label for="password_confirmation" class="sr-only">Password again</label>
-                    <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Repeat your password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password_confirmation') border-red-500 @enderror" value="">
-
-                    @error('password_confirmation')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Register</button>
-                </div>
             </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 @endsection

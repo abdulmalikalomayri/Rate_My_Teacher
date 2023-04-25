@@ -14,11 +14,20 @@
           </li>
         
         </ul>
-       
-                <a class="nav-link" href="{{ route('login')}}">Login</a>
-            
-                <a class="nav-link" href="{{ route('register')}}">Register</a>
+          @guest
+          <a class="nav-link" href="{{ route('login')}}">Login</a>
+      
+          <a class="nav-link" href="{{ route('register')}}">Register</a>   
+          @endguest
+          @auth
+           <span class="nav-item">{{ auth()->user()->name;}}</span>   
            
+           <form action="{{ route('logout')}}" method="post">
+            @csrf
+            <button type="submit" class="btn btn-link">Logout</button> 
+          </form>
+          @endauth
+ 
           </ul>
       </div>
     </div>

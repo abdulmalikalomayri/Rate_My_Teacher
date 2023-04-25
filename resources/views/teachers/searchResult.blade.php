@@ -14,23 +14,15 @@
     </div>
 </div>
 <div class="px-4 p-5 my-5">
-  @if($teachers->count())
     <div class="col-lg-6 mx-auto">
-      @foreach ($teachers as $teacher)
-      <x-teacher :teacher="$teacher" />
-
-      @endforeach
-    </div>
-
-    {{ $teachers->links() }}
-  @else 
-  <div class="col-lg-6 mx-auto">
-    <div class="card w-75 mb-3">
-      <div class="card-body">
-        <h5 class="card-title">No Teacher aviablable!</h5>
+      <div class="card w-75 mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Teacher name</h5>
+          <p class="card-text">colleges</p>
+          <a href="#" class="btn btn-primary">up vote</a>
+          <a href="#" class="btn btn-primary">down vote</a>
+        </div>
       </div>
     </div>
-  </div>
- @endif
 </div>
 @endsection

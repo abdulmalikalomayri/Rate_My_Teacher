@@ -11,6 +11,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\TeacherLikeController;
+use App\Http\Controllers\TeacherDislikeController;
+
 
 /* Home Page */
 Route::get('/', function () {
@@ -51,4 +54,12 @@ Route::delete('/posts/{post}/dislikes', [PostDislikeController::class, 'destroy'
 
 
 Route::get('teachers', [TeacherController::class, 'index'])->name('teachers');
-Route::get('teachers/leaderboard', [TeacherController::class, 'index'])->name('teachers.leaderboard');
+Route::get('teachers/leaderboard', [TeacherController::class, 'leaderboard'])->name('teachers.leaderboard');
+
+/* Posts Like & Unlike */
+Route::post('/teachers/{teacher}/likes', [TeacherLikeController::class, 'store'])->name('teachers.likes');
+Route::delete('/teachers/{teacher}/likes', [TeacherLikeController::class, 'destroy'])->name('teachers.likes');
+
+/* Posts Dislike & Undislike */
+Route::post('/teachers/{teacher}/dislikes', [TeacherDislikeController::class, 'store'])->name('teachers.dislikes');
+Route::delete('/teachers/{teacher}/dislikes', [TeacherDislikeController::class, 'destroy'])->name('teachers.dislikes');

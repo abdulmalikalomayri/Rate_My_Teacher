@@ -33,7 +33,7 @@
                 </form>
             @endif
         @endauth
-
+                {{-- Like count --}}
         <span>{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count()) }}</span>
     </div>
 
@@ -52,7 +52,9 @@
                 </form>
             @endif
         @endauth
-
+                {{-- Dislike count --}}
         <span>{{ $post->dislikes->count() }} {{ Str::plural('dislike', $post->dislikes->count()) }}</span>
+
+        <span>{{ $post->likes->count() - $post->dislikes->count()}} </span>
     </div>
 </div>

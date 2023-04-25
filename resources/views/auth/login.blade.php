@@ -1,50 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex justify-center">
-        <div class="w-4/12 bg-white p-6 rounded-lg">
-            @if (session('status'))
-                <div class="bg-red-500 p-4 rounded-lg mb-6 text-white text-center">
-                    {{ session('status') }}
-                </div>
-            @endif
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
 
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Log in</h5>
             <form action="{{ route('login') }}" method="post">
                 @csrf
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+                @error('email')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
 
-                <div class="mb-4">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Your email" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('email') border-red-500 @enderror" value="{{ old('email') }}">
+              <div class="form-floating mb-3">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">Password</label>
+                @error('password')
+                <span class="alert alert-danger">{{ $message }}</span>
+                @enderror
+              </div>
 
-                    @error('email')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                <label class="form-check-label" for="remember">
+                  Remember me
+                </label>
+              </div>
 
-                <div class="mb-4">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Choose a password" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror" value="">
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Log in</button>
+              </div>
 
-                    @error('password')
-                        <div class="text-red-500 mt-2 text-sm">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="mb-4">
-                    <div class="flex items-center">
-                        <input type="checkbox" name="remember" id="remember" class="mr-2">
-                        <label for="remember">Remember me</label>
-                    </div>
-                </div>
-
-                <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Login</button>
-                </div>
             </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 @endsection
