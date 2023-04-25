@@ -39,6 +39,19 @@ class TeacherController extends Controller
 
         return view('teachers.leaderboard', ['teachers' => $teachers]);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function home()
+    {
+       
+
+        $teachers = Teacher::latest()->with(['likes', 'dislikes'])->paginate(2);
+
+        return view('home', ['teachers' => $teachers]);
+    }
 
     /**
      * Show the form for creating a new resource.
