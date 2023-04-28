@@ -23,7 +23,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
 
 
 
-/* Users */
+/******* Users Route *******/
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -32,7 +32,7 @@ Route::post('/login', [LoginController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-/* Posts */
+/******* Posts *******/
 
 Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
 
@@ -50,7 +50,7 @@ Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->na
 Route::post('/posts/{post}/dislikes', [PostDislikeController::class, 'store'])->name('posts.dislikes');
 Route::delete('/posts/{post}/dislikes', [PostDislikeController::class, 'destroy'])->name('posts.dislikes');
 
-
+/******* Teachers Route *******/
 Route::get('teachers', [TeacherController::class, 'index'])->name('teachers');
 Route::get('teachers/leaderboard', [TeacherController::class, 'leaderboard'])->name('teachers.leaderboard');
 
