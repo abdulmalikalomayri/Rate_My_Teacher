@@ -17,7 +17,7 @@ class TeacherSeeder extends Seeder
         //
         $teachers = [
             [
-                'name' => 'Zebin Alharbi',
+                'name' => 'Ahmed Alharbi',
             ],
             [
                 'name' => 'example',
@@ -32,7 +32,7 @@ class TeacherSeeder extends Seeder
                 'name' => 'mohammed abdullah',
             ],
             [
-                'name' => 'majed alshami',
+                'name' => 'majed alrbeah',
             ],
             [
                 'name' => 'abdulmalik alomayri',
@@ -44,7 +44,7 @@ class TeacherSeeder extends Seeder
                 'name' => 'naruto uzumaki',
             ],
             [
-                'name' => 'kathran alzhrani',
+                'name' => 'ahmed alzhrani',
             ]
             ];
 
