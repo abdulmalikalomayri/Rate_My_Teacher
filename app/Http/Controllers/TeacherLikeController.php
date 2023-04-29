@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Models\Rate;
 
 
 class TeacherLikeController extends Controller
@@ -19,6 +20,21 @@ class TeacherLikeController extends Controller
             return response(null, 409);
         }
 
+        // $user = User::find(1);
+        // $userDob = $user->profile->dob;
+        // $userBio = $user->profile->bio;
+        // $tech = Teacher::find($teacher->id);
+        // $counter = $tech->rates->counter;
+        // $teacher->rates->counter = 0;
+        // dd($teacher->rates->counter);
+
+        $rate = new Rate();
+        $rate->counter = 0;
+        $teacher = Teacher::find($teacher->id);
+        $rate->counter = $rate->counter + 1;
+        $teacher->rate()->save($rate);
+        dd($rate->counter);
+
         if(!$teacher->likedBy($request->user())) {
 
             $request->user()->dislikes()->where('teacher_id', $teacher->id)->delete();
@@ -30,6 +46,8 @@ class TeacherLikeController extends Controller
         $teacher->likes()->create([
             'user_id' => $request->user()->id,
         ]);
+
+        
 
         // send email notification if user have not like the teacher before
         // if (!$teacher->likes()->onlyTrashed()->where('user_id', $request->user()->id)->count()) {
