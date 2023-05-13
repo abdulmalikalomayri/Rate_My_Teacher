@@ -1,0 +1,17 @@
+:root {
+    --main-color: #5682e0;
+    --second-color: #d72b25;
+    --third-color: #66d725;
+  }
+
+.primery-border {
+    border: 2px solid var(--main-color);
+}
+
+.second-border {
+    border: 2px solid var(--second-color);
+}
+
+.third-border {
+    border: 2px solid var(--third-color);
+}

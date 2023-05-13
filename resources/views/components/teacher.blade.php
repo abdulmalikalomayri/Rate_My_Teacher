@@ -1,12 +1,12 @@
 @props(['teacher' => $teacher])
 
-<div class="row justify-content-center">
-<div class="mb-4 border col-sm-8 row align-items-center">
+<div class="row justify-content-center third-border my-2">
+<div class="mb-4 border col-sm-12 row align-items-center">
     {{-- Like --}}
     @auth
       {{-- user have not like the teacher before? --}}
       @if(!$teacher->likedBy(auth()->user()))
-        <form action="{{ route('teachers.likes', $teacher)}}" method="post">
+        <form class="" action="{{ route('teachers.likes', $teacher)}}" method="post">
             @csrf
             <button type="submit" class="btn btn-link">Like</button>
         </form>
