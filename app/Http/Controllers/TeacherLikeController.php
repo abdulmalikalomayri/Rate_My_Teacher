@@ -33,8 +33,7 @@ class TeacherLikeController extends Controller
         $teacher = Teacher::find($teacher->id);
         $rate->counter = $rate->counter + 1;
         $teacher->rate()->save($rate);
-        dd($rate->counter);
-
+ 
         if(!$teacher->likedBy($request->user())) {
 
             $request->user()->dislikes()->where('teacher_id', $teacher->id)->delete();

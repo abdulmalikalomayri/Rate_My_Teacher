@@ -67,8 +67,8 @@ class TeacherController extends Controller
         // order by rates.counter desc;
 
         $teachers = DB::table('teachers')
-            ->join('rates', 'rates.teacher_id', '=', 'teachers.id')
-            ->select('rates.counter', 'teachers.name')->orderBy('rates.counter', 'DESC')->paginate(5);
+            ->join('rates', 'rates.teacher_id', '=', 'teachers.id')      
+            ->select('rates.counter', 'teachers.name')->where("counter", ">", 0 )->orderBy('rates.counter', 'DESC')->paginate(5);
 
         // select teachers.name, likes.user_id
         // from teachers
