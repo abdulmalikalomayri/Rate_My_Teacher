@@ -1,4 +1,4 @@
-<nav class="container mar-nav navbar navbar-expand-lg navbar-light bg-main rounded-pill mt-3">
+<nav class="container fixed-top mar-nav navbar navbar-expand-lg navbar-light bg-main rounded-pill mt-3">
     <div class="container-fluid">
       <!-- <a class="navbar-brand" href="{{ route('home')}}">{{ config('app.name')}}</a> -->
       <a class="navbar-brand" href="{{ route('home')}}">
