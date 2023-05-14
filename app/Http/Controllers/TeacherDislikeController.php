@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Models\Rate;
 
 
 class TeacherDislikeController extends Controller
@@ -24,7 +25,8 @@ class TeacherDislikeController extends Controller
 
         // if user have liked the teacher before = remove like 
         if($teacher->likedBy($request->user())) {
-
+            $rate = new Rate();
+            $rate->counter = $rate->counter - 1;
             $request->user()->likes()->where('teacher_id', $teacher->id)->delete();
         }
         
@@ -37,6 +39,8 @@ class TeacherDislikeController extends Controller
 
     public function destroy(Teacher $teacher, Request $request)
     {
+        $rate = new Rate();
+            $rate->counter = $rate->counter + 1;
         $request->user()->dislikes()->where('teacher_id', $teacher->id)->delete();
 
         return back();

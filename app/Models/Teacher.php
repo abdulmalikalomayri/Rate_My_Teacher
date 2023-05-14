@@ -63,6 +63,6 @@ class Teacher extends Model
      */
     public function rate()
     {
-        return $this->hasOne(Teacher::class);
+        return $this->hasOne(Rate::class);
     }
 }

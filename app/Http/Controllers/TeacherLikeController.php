@@ -28,6 +28,11 @@ class TeacherLikeController extends Controller
         // $teacher->rates->counter = 0;
         // dd($teacher->rates->counter);
 
+        // get rate from teacher id
+        // dd($teacher->rate());
+        
+        
+        // dd($teacher->likes());
         $rate = new Rate();
         $rate->counter = 0;
         $teacher = Teacher::find($teacher->id);
@@ -60,6 +65,8 @@ class TeacherLikeController extends Controller
     {
         
         if($teacher->likedBy($request->user())) {
+            $rate = new Rate();
+            $rate->counter = $rate->counter - 1;
 
             $request->user()->likes()->where('teacher_id', $teacher->id)->delete();
         }
