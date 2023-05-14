@@ -1,7 +1,7 @@
 @props(['teacher' => $teacher])
 
 <div class="row justify-content-center  my-2">
-<div class="mb-4 border col-sm-12 row align-items-center">
+<div class="mb-4 teacher-card col-sm-12 row align-items-center">
     {{-- Like --}}
     @auth
       {{-- user have not like the teacher before? --}}
@@ -18,7 +18,14 @@
         </form>
       @endif
     @endauth
-    <div class="pl-4">{{ $teacher->likes->count() - $teacher->dislikes->count() }}  <a href="" class="btn btn-link">{{ $teacher->name }}</a></div>
+    <div class="row">
+      <div class="col-1 p-0 m-0 text-center">
+        <p class="p-0 m-0">{{ $teacher->likes->count() - $teacher->dislikes->count() }}</p>
+      </div>
+      <div class="col p-0 m-0 d-flex justify-content-start">
+        <p class="p-0 m-0"><a href="" class="btn btn-link color-black fs-6  p-0 m-0">{{ $teacher->name }}</a></p>
+      </div>
+    </div>
 
     {{-- Dislike --}}
     @auth

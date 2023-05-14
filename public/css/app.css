@@ -10,6 +10,7 @@ body {
     --second-color: #AFD3E2 !important;
     --third-color: #19A7CE !important;
     --forth-color: #146C94 !important;
+    --black-color: #0d0e0f !important;
   }
   
 /* Colors Start */
@@ -33,6 +34,15 @@ body {
     background-color: #146b9400 !important;
 }
 
+.bg-black {
+    background-color: var(--black-color) !important;
+}
+
+.color-black {
+    color: var(--black-color) !important;
+    text-decoration: solid !important;
+}
+
 .bg-main {
     background-color: var(--main-color) !important;
 }
@@ -51,15 +61,21 @@ body {
 }
 /* Colors End*/
 
-/* Login style start */
+/* Login and Register style start */
 .login-body{
         display: flex;
         align-items: center;
         justify-content: center;
 }
-/* Login style end */
+/* Login and Register style end */
 
-
+/* Teacher home cards */
+.teacher-card {
+    border-radius: 10px;
+    border: 1px solid #d6d6d6;
+    box-shadow: 0px 0px 3px 0px var(--black-color);
+}
+/* Teacher home cards */
 
 /* Input */
 input{

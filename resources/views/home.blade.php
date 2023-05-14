@@ -16,7 +16,7 @@
 </div>
 <div class="px-4 p-5 mt-2 ">
   @if($teachers->count())
-    <div class="col-lg-6 mx-auto primery-border">
+    <div class="col-lg-6 mx-auto ">
       @foreach ($teachers as $teacher)
       <x-teacher :teacher="$teacher" />
 
