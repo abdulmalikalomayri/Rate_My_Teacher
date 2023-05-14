@@ -1,6 +1,6 @@
 @props(['teacher' => $teacher])
 
-<div class="row justify-content-center third-border my-2">
+<div class="row justify-content-center  my-2">
 <div class="mb-4 border col-sm-12 row align-items-center">
     {{-- Like --}}
     @auth

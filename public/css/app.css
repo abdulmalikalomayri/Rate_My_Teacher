@@ -1,17 +1,74 @@
-:root {
-    --main-color: #5682e0;
-    --second-color: #d72b25;
-    --third-color: #66d725;
-  }
+body {
+    background-color: var(--white-color) !important;
+    margin: 0;
+    padding: 0;
+}
 
+:root {
+    --white-color: #ffffff !important;
+    --main-color: #eff3fb !important;
+    --second-color: #AFD3E2 !important;
+    --third-color: #19A7CE !important;
+    --forth-color: #146C94 !important;
+  }
+  
+/* Colors Start */
 .primery-border {
-    border: 2px solid var(--main-color);
+    border: 2px solid var(--main-color) !important;
 }
 
 .second-border {
-    border: 2px solid var(--second-color);
+    border: 2px solid var(--second-color) !important;
 }
 
 .third-border {
-    border: 2px solid var(--third-color);
+    border: 2px solid var(--third-color) !important;
 }
+
+.no-border {
+    border: 0px !important;
+}
+
+.no-bg {
+    background-color: #146b9400 !important;
+}
+
+.bg-main {
+    background-color: var(--main-color) !important;
+}
+
+.bg-second {
+    background-color: var(--second-color) !important;
+}
+.bg-third {
+    background-color: var(--third-color) !important;
+}
+.bg-forth {
+    background-color: var(--forth-color) !important;
+}
+.color-forth {
+    color: var(--forth-color) !important;
+}
+/* Colors End*/
+
+/* Login style start */
+.login-body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+/* Login style end */
+
+
+
+/* Input */
+input{
+    border-radius: 40px !important;
+    border: 1px solid var(--forth-color) !important;
+}
+input:focus{
+    border-radius: 25px !important;
+    border: 1px solid var(--forth-color) !important;
+    box-shadow: 0px 0px 3px 1px var(--second-color) !important;
+}
+/* Input */
