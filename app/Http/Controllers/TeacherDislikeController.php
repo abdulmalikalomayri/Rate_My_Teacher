@@ -19,7 +19,7 @@ class TeacherDislikeController extends Controller
     {
         
         $rate = Rate::where('teacher_id', '=', $teacher->id)->firstOrFail();
-        $rate->counter = $rate->counter + 1;
+        $rate->counter = $rate->counter - 1;
         $rate->save();
         // if the user already made the action. 
         // the below code will prevent from the attacker to do the action again
@@ -29,8 +29,7 @@ class TeacherDislikeController extends Controller
 
         // if user have liked the teacher before = remove like 
         if($teacher->likedBy($request->user())) {
-            $rate = new Rate();
-            $rate->counter = $rate->counter - 1;
+
             $request->user()->likes()->where('teacher_id', $teacher->id)->delete();
         }
         
@@ -43,8 +42,9 @@ class TeacherDislikeController extends Controller
 
     public function destroy(Teacher $teacher, Request $request)
     {
-        $rate = new Rate();
-            $rate->counter = $rate->counter + 1;
+         $rate = Rate::where('teacher_id', '=', $teacher->id)->firstOrFail();
+        $rate->counter = $rate->counter + 1;
+        $rate->save();
         $request->user()->dislikes()->where('teacher_id', $teacher->id)->delete();
 
         return back();

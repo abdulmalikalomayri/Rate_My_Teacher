@@ -76,9 +76,6 @@ class TeacherLikeController extends Controller
         $rate->save();
         
         if($teacher->likedBy($request->user())) {
-            $rate = new Rate();
-            $rate->counter = $rate->counter - 1;
-
             $request->user()->likes()->where('teacher_id', $teacher->id)->delete();
         }
 
