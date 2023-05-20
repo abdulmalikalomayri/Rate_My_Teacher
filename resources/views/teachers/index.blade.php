@@ -9,7 +9,7 @@
       <form action="{{ route('teachers', request()->query()) }}" class="d-flex w-100" role="search">
           <input class="form-control w-100 me-2" type="search" name="q" value="" placeholder="Teacher name" aria-label="Search">
           <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-          <button class=" btn btn-lg btn-primary bg-forth rounded-pill p-0 mx-2" type="submit"><p class="p-1 m-0 fs-6 mx-2">Search</p></button>
+          <button class=" btn btn-lg btn-primary bg-forth rounded-pill p-0 mx-2" type="submit"><p class="p-1 m-0 fs-4 mx-4">Search</p></button>
       </form>
     </div>
   </div>
