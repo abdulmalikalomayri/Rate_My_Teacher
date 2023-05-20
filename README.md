@@ -1,2 +1,2 @@
-# Rate Teacher Samll project
+# Rate Teacher mini-project
 
