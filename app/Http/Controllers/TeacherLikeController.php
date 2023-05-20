@@ -33,12 +33,20 @@ class TeacherLikeController extends Controller
         
         
         // dd($teacher->likes());
-        $rate = new Rate();
-        $rate->counter = 0;
-        $teacher = Teacher::find($teacher->id);
+        // $rate = new Rate();
+        // $rate->counter = 0;
+        // $teacher = Teacher::find($teacher->id);
+        // $rate->counter = $rate->counter + 1;
+        // $teacher->rate()->save($rate);
+
+        $rate = Rate::where('teacher_id', '=', $teacher->id)->firstOrFail();
         $rate->counter = $rate->counter + 1;
-        $teacher->rate()->save($rate);
- 
+        $rate->save();
+        // $t = Teacher::find($teacher->id);
+
+        // $t->rate->counter = 1;
+        
+
         if(!$teacher->likedBy($request->user())) {
 
             $request->user()->dislikes()->where('teacher_id', $teacher->id)->delete();
@@ -63,6 +71,9 @@ class TeacherLikeController extends Controller
 
     public function destroy(Teacher $teacher, Request $request)
     {
+        $rate = Rate::where('teacher_id', '=', $teacher->id)->firstOrFail();
+        $rate->counter = $rate->counter - 1;
+        $rate->save();
         
         if($teacher->likedBy($request->user())) {
             $rate = new Rate();

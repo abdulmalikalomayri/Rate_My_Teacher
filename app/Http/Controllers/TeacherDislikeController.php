@@ -17,6 +17,10 @@ class TeacherDislikeController extends Controller
 
     public function store(Teacher $teacher, Request $request)
     {
+        
+        $rate = Rate::where('teacher_id', '=', $teacher->id)->firstOrFail();
+        $rate->counter = $rate->counter + 1;
+        $rate->save();
         // if the user already made the action. 
         // the below code will prevent from the attacker to do the action again
         if($teacher->dislikedBy($request->user())) {

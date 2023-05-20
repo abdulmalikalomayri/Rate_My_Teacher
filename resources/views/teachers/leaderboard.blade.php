@@ -18,12 +18,13 @@
   @if($teachers->count())
     <div class="col-lg-6 mx-auto">
       @foreach ($teachers as $teacher)
-    <div class="row justify-content-center">
-      <div class="mb-4 border col-sm-8 row align-items-center">
-          {{-- Like --}}
-
-          <div class="pl-4"> <a href="" class="btn btn-link">{{ $teacher->name }}</a></div>
-
+      <div class="row justify-content-center  my-2">
+        <div class="mb-4 teacher-card col-sm-12 row align-items-center">
+          <div class="row">
+            <div class="col p-0 m-0 d-flex justify-content-start">
+          <div class="pl-4"> <a href="" class="btn btn-link color-black fs-6  p-0 m-0">{{ $teacher->name }}</a></div>
+        </div>
+        </div>
           {{-- Dislike --}}
 
       </div>
