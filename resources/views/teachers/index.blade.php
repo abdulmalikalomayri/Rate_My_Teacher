@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold">Search for teachers</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Try to search for a teacher by name</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <form action="{{ route('teachers', request()->query()) }}" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" name="q" value="{{ $search_param }}" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+<div class="px-4 py-5 mt-5 text-center ">
+  <!-- <h1 class="display-5 fw-bold">Home</h1> -->
+  <div class="col-lg-6 mx-auto">
+    <h3 class="mb-4 h3">Try to search for a teacher by name</h3>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <form action="{{ route('teachers', request()->query()) }}" class="d-flex w-100" role="search">
+          <input class="form-control w-100 me-2" type="search" name="q" value="" placeholder="Teacher name" aria-label="Search">
+          <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+          <button class=" btn btn-lg btn-primary bg-forth rounded-pill p-0 mx-2" type="submit"><p class="p-1 m-0 fs-6 mx-2">Search</p></button>
+      </form>
     </div>
+  </div>
 </div>
 <div class="px-4 p-5 my-5">
   @if($teachers->count())
