@@ -29,14 +29,18 @@ php artisan serve
 
 <h3>Login Details</h3>
 <h4>Admin</h4>
-email: admin@admin.com
-username: admin
-Password: password
+<ul>
+    <li>email: admin@admin.com</li>
+    <li>username: admin</li>
+    <li>Password: password</li>
+</ul>
 
 <h4>User</h4>
-email example@example.com
-username: example
-password: password
+<ul>
+    <li>email: example@example.com</li>
+    <li>username: example</li>
+    <li>password: password</li>
+</ul>
 
 <h2>Happy Coding.</h2>
     
